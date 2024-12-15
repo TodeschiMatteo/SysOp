@@ -1,0 +1,1 @@
+find /percorso/della/cartella -type f \( -name "*.sh" -o -name "*.txt" \) -exec sed -i 's/\r//' {} \;

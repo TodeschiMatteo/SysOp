@@ -138,7 +138,11 @@ Test dei file  in [..] e [[..]]
 -w	È scrivibile			-w file.txt è vero se file.txt è scrivibile
 -x	È eseguibile			-x file.txt è vero se file.txt è eseguibile
 -s	Il file esiste ed è non vuoto	-s file.txt è vero se file.txt esiste ed ha contenuti
--L	È un link simbolico		-L link.txt è vero se link.txt è un link simbolico
+-h	È un link simbolico		-h link.txt è vero se link.txt è un link simbolico
+-ot	È più vecchio di		-file1 -ot file2 è vero se file1 è più vecchio di file2
+-nt	È più recente di		-file1 -nt file2 è vero se file1 è più recente di file2
+-O	È di proprietà di user		-O file.txt è vero se file.txt appartiene all'utente corrente
+-G	Appartiene al gruppo di user	-G file.txt è vero se file.txt appartiene al gruppo dell'utente corrente
 
 Confronti aritmetici in ((..))
 ==	Uguale a		(( a == b )) è vero se a è uguale a b
@@ -331,5 +335,22 @@ per rendere output di comando array prima si esegue il comando (command) e poi $
 Oppure con ni backtik VAR=`comando`
 
 >- contaseparatamente.sh -<
+
+}----------------------------{
+
+Lanciare processo in background
+
+(comando) &
+$! -> ottengo il Pid
+
+}----------------------------{
+
+Comando "find"
+
+find /path/ -mindepth 2 -name "*.h -print
+
+mindepth -> (profondita di subdir dove 1 è òa cartella stessa)
+name -> cerca corrispondenze per nome
+print -> stampa i nomi completi
 
 }----------------------------{
