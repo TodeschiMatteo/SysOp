@@ -205,6 +205,7 @@ $? – Stato di uscita dell'ultimo comando.
 $0 – Nome dello script o comando.
 $1, $2, ... – Argomenti passati allo script.
 $# – Numero di argomenti passati allo script.
+$i - Accedo a parametro posizionale passato allo script (esempio for (( i=0; i<n; i++ )) )
 $@ – Tutti gli argomenti come lista.
 $* – Tutti gli argomenti come una stringa unica.
 $_ – Ultimo argomento passato all'ultimo comando.
@@ -230,8 +231,10 @@ ${VAR/pattern/string} trova pattern in VAR e lo sostituisce con string
 
 Rimozione parti di stringa
 
-- # toglie prefissi
-- % toglie suffissi
+- # toglie prefissi			(ciao al mondo) --> (al mondo)
+- % toglie suffissi			(ciao al mondo) --> (ciao al)
+- ## toglie prefisso piu' lungo		(ciao al mondo) --> (mondo)
+- %% toglie suffisso piu' lungo		(ciao al mondo) --> (ciao)
 
 Esempio:
 ".1." ".2." ".3." ".4."
@@ -240,6 +243,8 @@ while read RIGA; do
         TERZO=${TERZOeQUARTO%*\"*\"}		--> toglie ".4." alla fine
         echo MOTIVO is ${TERZO} 		--> resta ".3."
 done < file.txt					--> file di input
+
+>- contaseparatamente.sh -<
 
 }----------------------------{
 
@@ -306,5 +311,25 @@ Aggiungi l'output di un comando a un file esistente --> ls | tee -a lista_file.t
 
 Ordinare righe --> sort
 Rendere uniche --> uniq --> utilizzabile con pipe: sort /path/ | uniq
+
+}----------------------------{
+
+Costruire comando personalizzato --> eval "..."
+
+}----------------------------{
+
+Standard Output	--> >&1
+Standard Error	--> >&2
+
+}----------------------------{
+
+Lanciare altro script in shell corrente --> source ./script.sh
+Lanciare altro script in un altra shell --> ./script.sh
+
+Se usi source usa sempre source ./script.sh "args" con le virgolette
+per rendere output di comando array prima si esegue il comando (command) e poi $((command))
+Oppure con ni backtik VAR=`comando`
+
+>- contaseparatamente.sh -<
 
 }----------------------------{
