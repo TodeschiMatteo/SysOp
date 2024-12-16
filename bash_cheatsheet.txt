@@ -209,7 +209,7 @@ $? – Stato di uscita dell'ultimo comando.
 $0 – Nome dello script o comando.
 $1, $2, ... – Argomenti passati allo script.
 $# – Numero di argomenti passati allo script.
-$i - Accedo a parametro posizionale passato allo script (esempio for (( i=0; i<n; i++ )) )
+${!i} - Accedo a parametro posizionale passato allo script (esempio for (( i=0; i<n; i++ )) )
 $@ – Tutti gli argomenti come lista.
 $* – Tutti gli argomenti come una stringa unica.
 $_ – Ultimo argomento passato all'ultimo comando.
@@ -324,6 +324,8 @@ Costruire comando personalizzato --> eval "..."
 
 Standard Output	--> >&1
 Standard Error	--> >&2
+Error2Output	--> 1>&2
+Output2Error	--> 2>&1
 
 }----------------------------{
 
@@ -349,8 +351,51 @@ Comando "find"
 
 find /path/ -mindepth 2 -name "*.h -print
 
-mindepth -> (profondita di subdir dove 1 è òa cartella stessa)
-name -> cerca corrispondenze per nome
-print -> stampa i nomi completi
+Sottocomando		Descrizione
+-type			Specifica il tipo di file (f=file, d=directory, l=link, ecc.)
+-name / -iname		Cerca file/directory per nome (-iname ignora maiuscole)	find /path -name "*.txt"
+-size			Cerca file per dimensione (+ più grande, - più piccolo)	find /path -size +100M
+-mtime/-atime/-ctime	Cerca file in base ai giorni dall'ultima modifica/accesso/cambio metadati
+-mmin / -amin / -cmin	Versione in minuti dei comandi sopra	find /path -mmin -10 (ultimi 10 minuti)
+-perm			Cerca file con permessi specifici	find /path -perm 644 (permessi esatti)
+-user / -group		Cerca file appartenenti a un utente o gruppo specifico	find /path -user username
+-exec			Esegui un comando sui file trovati	find /path -name "*.log" -exec rm {} \;
+-empty			Trova file o directory vuote	find /path -empty
+-path			Cerca file in un percorso specifico	find /path -path "/path/to/dir/*"
+-not / !		Esclude file o directory	find /path -not -name "*.txt"
+-maxdepth / -mindepth	Limita la profondità della ricerca (massima/minima)	find /path -maxdepth 1
+-print / -print0	Mostra i risultati (-print0 usa separatore null per file con spazi)	find /path -name "*.txt" -print0
+-and, -or, !		Operatori logici per combinare condizioni find /path -type f -name "*.txt" -or -name "*.log"
+
+}----------------------------{
+
+Comando "echo"
+
+echo "testo"	Stampa una stringa semplice sullo standard output	echo "Hello, World!"
+-n		Non aggiunge un carattere di nuova riga alla fine	echo -n "Nessuna nuova riga"
+-e		Interpreta sequenze di escape (come \n, \t)		echo -e "Riga1\nRiga2\tCon tab"
+\n		Inserisce una nuova riga				echo -e "Riga1\nRiga2"
+\t		Inserisce una tabulazione				echo -e "Colonna1\tColonna2"
+\r		Ritorno a capo (torna all'inizio della riga corrente)	echo -e "Sovrascrivo\rTesto"
+\b		Backspace (cancella un carattere precedente)		echo -e "A\bB"
+\\		Stampa una barra inversa \				echo -e "Percorso: C:\\Users"
+"$variabile"	Stampa il valore di una variabile			variabile="Testo" e poi echo "$variabile"
+$(comando)	Esegue un comando e stampa l'output			echo "Data: $(date)"
+>>		Aggiunge l'output a un file esistente			echo "Testo" >> file.txt
+>		Sovrascrive l'output in un file (crea file se !esiste)	echo "Testo" > file.txt
+"*"		Stampa i nomi di file nella directory corrente		echo *
+"\\$"		Stampa il simbolo $					echo "\$HOME"
+-E		Non interpreta sequenze di escape			echo -E "No escape \n sequence"
+2>&1		Reindirizza lo standard error/output			echo "Errore" 2>&1
+
+}----------------------------{
+
+Leggere da standard input
+
+while read RIGA; do
+	something
+done
+
+Ctrl+D per terminare input
 
 }----------------------------{
