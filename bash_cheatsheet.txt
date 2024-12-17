@@ -311,6 +311,13 @@ Esempi:
 Salva l'output di un comando in un file e mostralo contemporaneamente --> ls | tee lista_file.txt
 Aggiungi l'output di un comando a un file esistente --> ls | tee -a lista_file.txt
 
+8. awk Descrizione: Un potente linguaggio di programmazione per l'elaborazione e l'analisi di file di testo.
+Uso principale: Estrarre, manipolare e formattare dati da file di testo.
+Sintassi: awk [opzioni] 'pattern {azione}' [file]
+Esempi: Stampa la prima colonna di un file --> awk '{print $1}' file.txt
+Filtra righe che contengono "errore" e stampa la seconda colonna --> awk '/errore/ {print $2}' file.txt
+Calcola la somma della terza colonna --> awk '{s+=$3} END {print s}' file.txt
+
 }----------------------------{
 
 Ordinare righe --> sort
