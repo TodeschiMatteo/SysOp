@@ -1,0 +1,401 @@
+Leggere stringa carattere per carattere:
+- Ciclo for e offset -> ${stringa:i:1}
+- While e READ -n 1 … << stringa
+
+}----------------------------{
+
+Differenze tra (( ... )), [ ... ], [[ ... ]]
+
+1. (( ... )) - Condizioni aritmetiche
+Uso principale: Valutare e confrontare espressioni numeriche.
+Proprietà chiave:
+È usato per operazioni matematiche e confronti tra numeri.
+Non richiede $ davanti alle variabili (se usate nel contesto aritmetico).
+Restituisce 0 (vero) o 1 (falso) basato sull'operazione.
+Operatori supportati:
+Confronti: ==, !=, <, <=, >, >=
+Operazioni: +, -, *, /, %, ++, --
+Esempi:
+
+# Confronto tra valori
+if (( a > b )); then
+  echo "a è maggiore di b"
+fi
+
+# Incremento valori
+((a++))
+echo $a
+
+----------------------------
+
+2. [ ... ] - Condizioni test classico
+Uso principale: Eseguire confronti semplici (numeri, stringhe, file).
+Proprietà chiave:
+È una versione più vecchia, con meno funzionalità rispetto a [[ ... ]].
+Supporta operatori come -eq, -ne, -lt, -le, -gt, -ge per numeri.
+Supporta confronti stringa come = o !=.
+Usa test su file come -f, -d, -e, -r, ecc.
+Richiede spazi intorno agli operatori.
+Limiti:
+Non supporta espressioni regolari.
+Non consente l'uso di operatori logici avanzati come && o || (si usano combinazioni con if).
+Esempi:
+
+# Confronto numerico
+if [ "$a" -gt "$b" ]; then
+  echo "a è maggiore di b"
+fi
+
+# Confronto stringa
+if [ "$stringa" = "ciao" ]; then
+  echo "La stringa è 'ciao'"
+fi
+
+# Test file
+if [ -f "file.txt" ]; then
+  echo "file.txt esiste"
+fi
+
+----------------------------
+
+3. [[ ... ]] - Condizioni test avanzato
+Uso principale: Sostituto moderno e più potente di [ ... ].
+Proprietà chiave:
+Supporta operatori logici come && e ||.
+Consente l'uso di espressioni regolari con =~.
+Non richiede escape per operatori come > e <.
+È più sicuro con le variabili (non rischia comportamenti strani con input vuoti).
+Non funziona in tutte le shell (specifico di Bash e alcune altre shell avanzate).
+Operatori supportati:
+Tutti quelli di [ ... ] più =~ (per regex).
+Esempi:
+
+# Confronto stringa con regex
+stringa="ciao mondo"
+if [[ $stringa =~ ^ciao ]]; then
+  echo "La stringa inizia con 'ciao'"
+fi
+
+# Confronto numerico
+if [[ $a -gt $b && $b -lt 10 ]]; then
+  echo "a è maggiore di b e b è minore di 10"
+fi
+
+----------------------------
+
+4. (...) - Esegui in un subshell
+Uso principale: Non è per confronti, ma per eseguire un blocco di codice in una subshell.
+Proprietà chiave:
+Tutto il codice dentro (...) viene eseguito in un nuovo processo figlio.
+Le modifiche fatte all'interno non influenzano il processo principale.
+Esempio:
+
+# Modifica in subshell
+(b=20; echo $b)  # Stampa 20
+echo $b          # Vuoto, perché b è locale alla subshell
+
+# Confronto aritmetico deve usare ((...))
+
+}----------------------------{
+
+Espansioni di caratteri mancanti
+
+/usr/bin/std* --> qualsiasi stringa
+
+/usr/bin/std? --> singolo carattere
+
+/usr/bin/std{1,2,log} --> lista di stringhe --> /usr/bin/std1, /usr/bin/std2, /usr/bin/stdlog
+(cerca tutti i file con i singoli caratteri indicati)
+
+/usr/bin/std[0-9] --> piu' possibilita' --> /usr/bin/std0, /usr/bin/std1, …, /usr/bin/std9
+(cerca tutti i file tra l'intervallo dei caratteri indicati)
+
+}----------------------------{
+
+Operatori di confronto
+
+Confronti numerici in [..] e [[..]]
+-eq	Uguale a (equal to)				a -eq b è vero se a == b
+-ne	Diverso da (not equal to)			a -ne b è vero se a != b
+-lt	Minore di (less than)				a -lt b è vero se a < b
+-le	Minore o uguale a (less than or equal to)	a -le b è vero se a <= b
+-gt	Maggiore di (greater than)			a -gt b è vero se a > b
+-ge	Maggiore o uguale a (greater than or equal to)	a -ge b è vero se a >= b
+
+Confronti di stringhe in [..] e [[..]]
+=	Uguale a						a = b è vero se a è uguale a b
+!=	Diverso da						a != b è vero se a è diverso da b
+<	Minore di (ordine lessicografico, solo con [[ .. ]])	a < b è vero se a viene prima nell'ordine alfabetico
+>	Maggiore di (ordine lessicografico, solo con [[ .. ]])	a > b è vero se a viene dopo nell'ordine alfabetico
+-z	La stringa è vuota (zero caratteri)			-z a è vero se la stringa a è vuota
+-n	La stringa non è vuota (ha almeno un carattere)		-n a è vero se la stringa a non è vuota
+
+Test dei file  in [..] e [[..]]
+-e	Esiste (qualsiasi tipo di file)	-e file.txt è vero se file.txt esiste
+-f	È un file regolare		-f file.txt è vero se file.txt è un file regolare
+-d	È una directory			-d directory è vero se directory è una directory
+-r	È leggibile			-r file.txt è vero se file.txt è leggibile
+-w	È scrivibile			-w file.txt è vero se file.txt è scrivibile
+-x	È eseguibile			-x file.txt è vero se file.txt è eseguibile
+-s	Il file esiste ed è non vuoto	-s file.txt è vero se file.txt esiste ed ha contenuti
+-h	È un link simbolico		-h link.txt è vero se link.txt è un link simbolico
+-ot	È più vecchio di		-file1 -ot file2 è vero se file1 è più vecchio di file2
+-nt	È più recente di		-file1 -nt file2 è vero se file1 è più recente di file2
+-O	È di proprietà di user		-O file.txt è vero se file.txt appartiene all'utente corrente
+-G	Appartiene al gruppo di user	-G file.txt è vero se file.txt appartiene al gruppo dell'utente corrente
+
+Confronti aritmetici in ((..))
+==	Uguale a		(( a == b )) è vero se a è uguale a b
+!=	Diverso da		(( a != b )) è vero se a è diverso da b
+<	Minore di		(( a < b )) è vero se a è minore di b
+<=	Minore o uguale a	(( a <= b )) è vero se a è minore o uguale a b
+>	Maggiore di		(( a > b )) è vero se a è maggiore di b
+>=	Maggiore o uguale a	(( a >= b )) è vero se a è maggiore o uguale a b
+
+Confronti AND e OR (&&, ||)
+in [..] --> 	[condizione1] && [condizione2]
+in [[..]] -->	[[condizione1 && condizione2]]
+in ((..)) -->	((condizione1 && condizione2))
+
+Confronti AND e OR nelle singole istruzioni
+comando1 && comando2 --> esegue il comando2 solo se comando 1 è riuscito
+comando1 || comando2 --> esegue il comando2 solo se comando 1 è fallito
+
+
+}----------------------------{
+
+Assegnazioni aritmetiche
+
+while read PRIMA SECONDA TERZA ; do
+	((SOMMA=${SOMMA}+${SECONDA}))
+done < input1.txt
+
+IFS=$',\n' --> Internal file separator per override del semplice spazio
+
+}----------------------------{
+
+Lettura di stream da file
+
+# effettuo le letture dal file mioinput.txt aprendolo in lettura
+exec {FD}< /home/vittorio/mioinput.txt
+while read -u ${FD} StringaLetta ; do
+	echo "ho letto: ${StringaLetta}"
+done
+
+# scrivo l'output dei comandi echo sul file miooutput.txt aprendolo in scrittura
+exec {FD}> /home/vittorio/miooutput.txt
+for name in pippo pippa pippi ; do
+	echo "inserisco ${name}" 1>&${FD}
+done
+
+
+}----------------------------{
+
+Ridirezionamenti
+
+< ricevere input da file
+> mandare std output verso file eliminando il vecchio contenuto del file
+>> mandare std output verso file aggiungendolo al vecchio contenuto del file
+| ridirigere output di un programma nell’ input di un altro programma
+&> mandare std output e error verso file aggiungendolo al vecchio contenuto del file
+>>> riceve direttamente input da quello che viene dopo --> read A B C <<< "alfa beta gamma"
+
+}----------------------------{
+
+Variabili speciali
+
+$$ – PID del processo corrente.
+$? – Stato di uscita dell'ultimo comando.
+$0 – Nome dello script o comando.
+$1, $2, ... – Argomenti passati allo script.
+$# – Numero di argomenti passati allo script.
+${!i} - Accedo a parametro posizionale passato allo script (esempio for (( i=0; i<n; i++ )) )
+$@ – Tutti gli argomenti come lista.
+$* – Tutti gli argomenti come una stringa unica.
+$_ – Ultimo argomento passato all'ultimo comando.
+$! – PID dell'ultimo comando in background.
+
+}----------------------------{
+
+Variabili di ambiente
+
+export VAR=valore
+unset VAR
+
+}----------------------------{
+
+Utilizzo di offset
+
+${#VAR} stringa che contiene la lunghezza del contenuto della variabile
+${VAR:offset} sottostringa che parte dal offset-esimo carattere del contenuto della variabile di nome VAR
+${VAR:offset:length} sottostringa lunga length che parte dal offset-esimo carattere del contenuto della variabile di nome VAR
+${VAR/pattern/string} trova pattern in VAR e lo sostituisce con string
+
+}----------------------------{
+
+Rimozione parti di stringa
+
+- # toglie prefissi			(ciao al mondo) --> (al mondo)
+- % toglie suffissi			(ciao al mondo) --> (ciao al)
+- ## toglie prefisso piu' lungo		(ciao al mondo) --> (mondo)
+- %% toglie suffisso piu' lungo		(ciao al mondo) --> (ciao)
+
+Esempio:
+".1." ".2." ".3." ".4."
+while read RIGA; do
+        TERZOeQUARTO=${RIGA#\"*\"*\"*\"}	--> toglie ".1." ".2." all'inizio
+        TERZO=${TERZOeQUARTO%*\"*\"}		--> toglie ".4." alla fine
+        echo MOTIVO is ${TERZO} 		--> resta ".3."
+done < file.txt					--> file di input
+
+>- contaseparatamente.sh -<
+
+}----------------------------{
+
+GNU Coreutils
+
+1. head
+Descrizione: Mostra le prime righe di un file o di un input standard.
+Uso principale: Visualizzare l'inizio di un file o di un output per capire la sua struttura o contenuto.
+Sintassi: head [opzioni] [file]
+Esempi:
+Mostra le prime 10 righe di un file --> head file.txt
+Mostra le prime 5 righe --> head -n 5 file.txt
+
+2. tail
+Descrizione: Mostra le ultime righe di un file o di un input standard.
+Uso principale: Controllare l'output in tempo reale o leggere la fine di un file di log.
+Sintassi: tail [opzioni] [file]
+Esempi:
+Mostra le ultime 10 righe di un file --> tail file.txt
+Controlla continuamente un file di log per nuovi aggiornamenti --> tail -f /var/log/syslog
+
+3. sed (Stream Editor)
+Descrizione: Modifica testi o file linea per linea usando comandi di trasformazione.
+Uso principale: Sostituire, eliminare, aggiungere o trasformare testo in file o stream.
+Sintassi: sed [opzioni] 'comando' [file]
+Esempi:
+Sostituisce tutte le occorrenze di "vecchio" con "nuovo" --> sed 's/vecchio/nuovo/g' file.txt
+Elimina le righe che contengono "errore" --> sed '/errore/d' file.txt
+
+4. cut
+Descrizione: Estrae sezioni di testo da file o input standard basandosi su colonne, byte o delimitatori.
+Uso principale: Isolare campi o colonne specifici in dati tabulari o delimitati.
+Sintassi: cut [opzioni] [file]
+Esempi:
+Estrai la seconda colonna (usando il delimitatore ",") --> cut -d',' -f2 file.csv
+Mostra i primi 5 caratteri di ogni riga --> cut -c1-5 file.txt
+
+5. cat
+Descrizione: Concatena e mostra il contenuto di file.
+Uso principale: Leggere file, concatenare più file o creare nuovi file.
+Sintassi: cat [file...]
+Esempi:
+Mostra il contenuto di un file --> cat file.txt
+Concatena due file in uno nuovo --> cat file1.txt file2.txt > file3.txt
+
+6. grep
+Descrizione: Cerca righe che corrispondono a un'espressione regolare in file o input standard.
+Uso principale: Filtrare e cercare stringhe o pattern in dati testuali.
+Sintassi: grep [opzioni] 'pattern' [file]
+Esempi:
+Cerca "errore" in un file --> grep 'errore' file.txt
+Cerca in modo ricorsivo in tutte le sottodirectory --> grep -r 'errore' /path/directory
+Cerca in modo insensibile al maiuscolo/minuscolo --> grep -i 'errore' file.txt
+
+7. tee
+Descrizione: Legge l'input standard e scrive contemporaneamente all'output standard e a uno o più file.
+Uso principale: Salvare un output in un file mentre lo si visualizza sulla shell.
+Sintassi: comando | tee [opzioni] [file...]
+Esempi:
+Salva l'output di un comando in un file e mostralo contemporaneamente --> ls | tee lista_file.txt
+Aggiungi l'output di un comando a un file esistente --> ls | tee -a lista_file.txt
+
+}----------------------------{
+
+Ordinare righe --> sort
+Rendere uniche --> uniq --> utilizzabile con pipe: sort /path/ | uniq
+
+}----------------------------{
+
+Costruire comando personalizzato --> eval "..."
+
+}----------------------------{
+
+Standard Output	--> >&1
+Standard Error	--> >&2
+Error2Output	--> 1>&2
+Output2Error	--> 2>&1
+
+}----------------------------{
+
+Lanciare altro script in shell corrente --> source ./script.sh
+Lanciare altro script in un altra shell --> ./script.sh
+
+Se usi source usa sempre source ./script.sh "args" con le virgolette
+per rendere output di comando array prima si esegue il comando (command) e poi $((command))
+Oppure con ni backtik VAR=`comando`
+
+>- contaseparatamente.sh -<
+
+}----------------------------{
+
+Lanciare processo in background
+
+(comando) &
+$! -> ottengo il Pid
+
+}----------------------------{
+
+Comando "find"
+
+find /path/ -mindepth 2 -name "*.h -print
+
+Sottocomando		Descrizione
+-type			Specifica il tipo di file (f=file, d=directory, l=link, ecc.)
+-name / -iname		Cerca file/directory per nome (-iname ignora maiuscole)	find /path -name "*.txt"
+-size			Cerca file per dimensione (+ più grande, - più piccolo)	find /path -size +100M
+-mtime/-atime/-ctime	Cerca file in base ai giorni dall'ultima modifica/accesso/cambio metadati
+-mmin / -amin / -cmin	Versione in minuti dei comandi sopra	find /path -mmin -10 (ultimi 10 minuti)
+-perm			Cerca file con permessi specifici	find /path -perm 644 (permessi esatti)
+-user / -group		Cerca file appartenenti a un utente o gruppo specifico	find /path -user username
+-exec			Esegui un comando sui file trovati	find /path -name "*.log" -exec rm {} \;
+-empty			Trova file o directory vuote	find /path -empty
+-path			Cerca file in un percorso specifico	find /path -path "/path/to/dir/*"
+-not / !		Esclude file o directory	find /path -not -name "*.txt"
+-maxdepth / -mindepth	Limita la profondità della ricerca (massima/minima)	find /path -maxdepth 1
+-print / -print0	Mostra i risultati (-print0 usa separatore null per file con spazi)	find /path -name "*.txt" -print0
+-and, -or, !		Operatori logici per combinare condizioni find /path -type f -name "*.txt" -or -name "*.log"
+
+}----------------------------{
+
+Comando "echo"
+
+echo "testo"	Stampa una stringa semplice sullo standard output	echo "Hello, World!"
+-n		Non aggiunge un carattere di nuova riga alla fine	echo -n "Nessuna nuova riga"
+-e		Interpreta sequenze di escape (come \n, \t)		echo -e "Riga1\nRiga2\tCon tab"
+\n		Inserisce una nuova riga				echo -e "Riga1\nRiga2"
+\t		Inserisce una tabulazione				echo -e "Colonna1\tColonna2"
+\r		Ritorno a capo (torna all'inizio della riga corrente)	echo -e "Sovrascrivo\rTesto"
+\b		Backspace (cancella un carattere precedente)		echo -e "A\bB"
+\\		Stampa una barra inversa \				echo -e "Percorso: C:\\Users"
+"$variabile"	Stampa il valore di una variabile			variabile="Testo" e poi echo "$variabile"
+$(comando)	Esegue un comando e stampa l'output			echo "Data: $(date)"
+>>		Aggiunge l'output a un file esistente			echo "Testo" >> file.txt
+>		Sovrascrive l'output in un file (crea file se !esiste)	echo "Testo" > file.txt
+"*"		Stampa i nomi di file nella directory corrente		echo *
+"\\$"		Stampa il simbolo $					echo "\$HOME"
+-E		Non interpreta sequenze di escape			echo -E "No escape \n sequence"
+2>&1		Reindirizza lo standard error/output			echo "Errore" 2>&1
+
+}----------------------------{
+
+Leggere da standard input
+
+while read RIGA; do
+	something
+done
+
+Ctrl+D per terminare input
+
+}----------------------------{

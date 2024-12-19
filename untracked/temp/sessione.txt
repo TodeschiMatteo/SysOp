@@ -1,0 +1,143 @@
+Script started on 2024-12-03 11:38:07+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="109" LINES="45"]
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ sed 's/AL/CUF/g'rm nginx_processi.txt [1@e[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6Psed 's/AL/CUF/g'[K]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ sed 's/AL/CUF/g'[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7mcut -b 3-5,10-15 input.txt [27mcut -b 3-5,10-15 input.txt [Kcut -b 3-5,10-15 input.txt [K[Kt
+[?2004ld fasd ds
+da asas d
+A k jklÃ²
+d kds ASs
+ gghh jjj
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | swd [K[Ked [K[K[K[Kwd[K[Ked 'g/s[K //' | sed 'g/*Ã©[K//?[K' |[K[K
+[?2004lsed: -e expression #1, char 2: extra characters after command
+sed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 'g/ //' | sed 'g/*//'[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004lsed: -e expression #1, char 2: extra characters after command
+sed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 'g/ /' | sed 'g/*//'[1P'
+[?2004lsed: -e expression #1, char 2: extra characters after command
+sed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 'g/ /' | sed 'g/*/'/'[1@/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004lsed: -e expression #1, char 2: extra characters after command
+sed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ [7msed 'g/ //'[27msed 'g/ //'
+[?2004lsed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ sed 'g/ //'[C[C
+[?2004lsed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ sed 'g/ //'[1P//'t//'
+[?2004lsed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ sed 'g/t//'[1P//' //'[C"/'"/'
+[?2004lsed: -e expression #1, char 2: extra characters after command
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ sed 'g/ /""/'[2Pt//' //'cut -b 3-5,10-15 input.txt | sed 'g/ //' | sed 'g/*//'[C | d[Ksed '[C[1P[1@s[C[1P[1@s[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P '[1P'[K[K[C
+[?2004ldfasd ds
+daasas d
+Ak jklÃ²
+dkds ASs
+gghh jjj
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //' | sed 's/*//'g'[C[C[1@g
+[?2004ldfasdds
+daasasd
+AkjklÃ²
+dkdsASs
+gghhjjj
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g'[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kcut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's/[12P' | sed 's/*//'g' | sed 's/*//g' | sed 's/|[K\t//g?[K'
+[?2004ldfasdd
+daasasd
+AkjklÃ
+dkdsAS
+gghhjj
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's/\t//g'[C[1Pt//g'7t//g'[1Pt//g'/t//g'
+[?2004lsed: -e expression #1, char 6: unknown option to `s'
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's//t//g'[1P//t//g'\//t//g'[1P//t//g's//t//g'[C[C/t//g'[C[1Pt//g'[C[1Pt//g'\t//g'[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kg'
+[?2004ldf	asdd
+daasasd
+Ak	jklÃ
+dkds	AS
+gg	hhjj
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's//t//g'\t//g'
+[?2004ldfasdd
+daasasd
+AkjklÃ
+dkdsAS
+gghhjj
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ [K]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ [K]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's/\t//g'
+[?2004ldfasdd
+daasasd
+Akjklj
+dkdsAS
+gghhjj
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's/\t//g' | wc
+[?2004l      5       5      36
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ ,a[K[Kman wc
+[?2004l[?1049h[22;0;0t[?1h=WC(1)                                                                                User Commands                                                                                WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[24m]... [[4mFILE[24m]...[m
+       [1mwc[0m [[4mOPTION[24m]... [4m--files0-from=F[24m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline, word, and byte counts for each FILE, and a total line if more than one FILE is specified.  A word is a non-zero-length sequence of characters delimited by white[m
+       space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the following order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[24m[m
+              read input from the files specified by NUL-terminated names in file F; If F is - then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+              output version information and exit[m
+[m
+[1mAUTHOR[0m[m
+       Written by Paul Rubin and David MacKenzie.[m
+[m
+[1mREPORTING[0m [1mBUGS[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0t[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ man wc[71@cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's/\t//g' |[C[C[C -m
+[?2004l36
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ cut -b 3-5,10-15 input.txt | sed 's/ //g' | sed 's/*//g' | sed 's/\t//g' | wc -m[Kc
+[?2004l36
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ nano unasiunano[Kno[K[K[K[K[K[Kuna[K[K[Kunano.sh
+[?2004l[?2004h[?1049h[22;0;0t[1;45r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[43;89H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 6.2                                                                            unasiunano.sh                                                                                     [1;187H(B[m[44d(B[0;7m^G(B[m Help[44;18H(B[0;7m^O(B[m Write Out     (B[0;7m^W(B[m Where Is[52G(B[0;7m^K(B[m Cut[44;69H(B[0;7m^T(B[m Execute[86G(B[0;7m^C(B[m Location[103G(B[0;7mM-U(B[m Undo[44;120H(B[0;7mM-A(B[m Set Mark     (B[0;7mM-](B[m To Bracket   (B[0;7mM-Q(B[m Previous     (B[0;7m^B(B[m Back[45d(B[0;7m^X(B[m Exit[45;18H(B[0;7m^R(B[m Read File     (B[0;7m^\(B[m Replace[52G(B[0;7m^U(B[m Paste[45;69H(B[0;7m^J(B[m Justify[86G(B[0;7m^/(B[m Go To Line    (B[0;7mM-E(B[m Redo[45;120H(B[0;7mM-6(B[m Copy[45;137H(B[0;7m^Q(B[m Where Was     (B[0;7mM-W(B[m Next[45;171H(B[0;7m^F(B[m Forward[2d[?12l[?25h[?25l[1;105H(B[0;7m*[43d(B[m[K[1;187H[2dSI[32m=[39m(B[m1[3d[32mwhile[39m(B[m [32mread[39m(B[m RIGA [32m;[39m(B[m [32mdo[4dif[39m(B[m [32m(([39m(B[m (B[0;1m[31m${SI}[39m(B[m [32m==[39m(B[m 0 [32m))[39m(B[m [32m;[39m(B[m [32mthen[39m(B[m (B[0;1m[34mecho[39m(B[m (B[0;1m[33m"${RIGA}"(B[0m[32m;[39m(B[m SI[32m=[39m(B[m1[5d[32melse[39m(B[m SI[32m=[39m(B[m0[6d[32mfi[7ddone[39m(B[m[?12l[?25h[?25l[?12l[?25h[A[?25l[?12l[?25h[5;5H[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[A[?25l[?12l[?25h[?25l[?12l[?25h [?25l[?12l[?25h [?25l[?12l[?25h[32m=[39m(B[m[?25l[?12l[?25h0[?25l[?12l[?25h[3d[?25l[?12l[?25h[?25l[?12l[?25h[4d[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[8G[1K [32mif[39m(B[m [32m(([39m(B[m (B[0;1m[31m${SI}[39m(B[m [32m==[39m(B[m 0 [32m))[39m(B[m [32m;[39m(B[m [32mthen[39m(B[m (B[0;1m[34mecho[39m(B[m (B[0;1m[33m"${RIGA}"(B[0m[32m;[39m(B[m SI[32m=[39m(B[m1[4;9H[?25l[?12l[?25h[5d[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[A[?25l[?12l[?25h[4;9H[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h0[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[1P[?25l7[5;43r8[5dM[1;45r[4;30H[K[5d[32mthen[39m(B[m (B[0;1m[34mecho[39m(B[m (B[0;1m[33m"${RIGA}"(B[0m[32m;[39m(B[m SI[32m=[39m(B[m1[?12l[?25h[?25l[?12l[?25h[8G[1K [32mthen[39m(B[m (B[0;1m[34mecho[39m(B[m (B[0;1m[33m"${RIGA}"(B[0m[32m;[39m(B[m SI[32m=[39m(B[m1[5;9H[?25l[?12l[?25h[16G[1K [32mthen[39m(B[m (B[0;1m[34mecho[39m(B[m (B[0;1m[33m"${RIGA}"(B[0m[32m;[39m(B[m SI[32m=[39m(B[m1[5;17H[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25hS[?25l[?12l[?25hI[?25l[?12l[?25h[C[?25l[?12l[?25h1[?25l[?12l[?25h[6d[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25hS[?25l[?12l[?25hI[?25l[?12l[?25h[C[?25l[?12l[?25h0[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[5;42H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25hSI[32m=[39m(B[m1[K[?25l7[6;43r8[6dM[1;45r[5;37H[K[6dSI[32m=[39m(B[m1[?12l[?25h[?25l[?12l[?25h[8G[1K SI[32m=[39m(B[m1[?25l[?12l[?25h[16G[1K SI[32m=[39m(B[m1[?25l[?12l[?25h[7;10H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[8G[1K [32melse[39m(B[m SI[32m=[39m(B[m0[7;9H[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h[C[?25l[?12l[?25h [?25l[?12l[?25h[9GelseSI[32m=[39m(B[m0[K[?25l7[8;43r8[8dM[1;45r[7;9H[32melse[39m(B[m[K[8dSI[32m=[39m(B[m0[?12l[?25h[?25l[?12l[?25h[8G[1K SI[32m=[39m(B[m0[?25l[?12l[?25h[16G[1K SI[32m=[39m(B[m0[?25l[?12l[?25h[9;3H[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[8G[1K [32mfi[39m(B[m[?25l[?12l[?25h[10;5H[?25l[43d(B[0;7mSave modified buffer?                                                                                                                                                                       [44;1H Y(B[m Yes[K[45d(B[0;7m N(B[m No  [45;17H(B[0;7m^C(B[m Cancel[K[43;23H[?12l[?25h[?25l[?12l[?25h[?25l[44d(B[0;7m^G(B[m Help[44;48H(B[0;7mM-D(B[m DOS Format[44;95H(B[0;7mM-A(B[m Append[44;142H(B[0;7mM-B(B[m Backup File[45d(B[0;7m^C(B[m Cancel[17G         [45;48H(B[0;7mM-M(B[m Mac Format[45;95H(B[0;7mM-P(B[m Prepend[45;142H(B[0;7m^T(B[m Browse[43d(B[0;7mFile Name to Write: unasiunano.sh(B[m[?12l[?25h[?25l[43;87H[1K (B[0;7m[ Writing... ](B[m[K[1;105H(B[0;7m [187G(B[m[43;86H(B[0;7m[ Wrote 9 lines ](B[m[J[45d[?12l[?25h[45;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ ./una[K[K[K[K[Kchmod 704 unasiunano.sh 
+[?2004l[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ chmod 704 unasiunano.sh [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K./unas[Ksiunano.sh 
+[?2004lasdas
+asdas
+asdasdaasd
+asdasd
+asdasd
+asdasdasd
+asdasdasdasdasdadad
+asdasdasdasdasdadad
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ git status
+[?2004lOn branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mdati.txt[m
+	[31minput.txt[m
+	[31msessione.txt[m
+	[31munasiunano.sh[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[?2004h]0;studente@lubuntu22: ~/esercizi[01;32mstudente@lubuntu22[00m:[01;34m~/esercizi[00m$ l[Kexit
+[?2004lexit
+
+Script done on 2024-12-03 12:01:26+01:00 [COMMAND_EXIT_CODE="0"]
